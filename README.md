@@ -238,7 +238,7 @@ storage.getAccountId()
 **Session class**
 
 You can create a new instance of Session by calling 
-`var session = new Session(storage:CookieStorage, device:Device)`
+`var session = new Session(device:Device, storage:CookieStorage)`
 
 If you have valid cookies, you don't need to worry about anything else
 if you don't, you need to create a session with storage and device.
@@ -491,7 +491,7 @@ and set new `cursor`.
 `feed.get() : Promise<Media[]>`
 
 ```javascript
-var _ = require('underscore');
+var _ = require('lodash');
 var Promise = require('bluebird');
 
 var accountId = '123456'
@@ -619,6 +619,7 @@ function challengeMe(error){
 			if(!challenge.type !== 'phone') return;
 			//Let's check if we need to submit/change our phone number
 			return challenge.phone('+10123456789')
+				.then(function(){return challenge});
 		})
 		.then(function(challenge){
 			// Ok we got to the next step, the response code expected by Instagram

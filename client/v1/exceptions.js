@@ -1,4 +1,4 @@
-var _ = require("underscore");
+var _ = require("lodash");
 var util = require("util");
 var routes = require('./routes');
 
@@ -344,7 +344,7 @@ exports.InvalidPhone = InvalidPhone;
 
 
 function InvalidPassword() {
-    this.name = 'InvalidPhone';
+    this.name = 'InvalidPassword';
     this.message = "Password must be at least 6 chars long";
 }
 
@@ -369,7 +369,7 @@ util.inherits(AccountRegistrationError, APIError);
 exports.AccountRegistrationError = AccountRegistrationError;
 
 function TranscodeTimeoutError() {
-    this.name = "Transcode Error";
+    this.name = "TranscodeError";
     this.message = "Server did not transcoded uploaded video in time";
 }
 util.inherits(TranscodeTimeoutError, APIError);
