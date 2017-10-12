@@ -255,9 +255,8 @@ var PhoneVerificationChallenge = function(session, type, checkpointError, json) 
 PhoneVerificationChallenge.prototype.phone = function(phone){
     var that = this;
     if(!this.submitPhone) return this;
-    var _phone = phone || (that.json && that.json.step_data) ? that.json.step_data.phone_number : null;
-    console.log(phone);
-    console.log(_phone);
+    let instaPhone = (that.json && that.json.step_data) ? that.json.step_data.phone_number : null;
+    let _phone = phone || instaPhone;
     if(!_phone) return new Error('Invalid phone number');
     return new WebRequest(that.session)
         .setMethod('POST')
