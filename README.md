@@ -10,7 +10,8 @@ Instagram Private NODE.JS API
 
 ----
 
-Carefully consider using this library. I’m no longer maintaining the repository.
+*Carefully consider using this library. I’m no longer maintaining the repository.*
+
 Community is taking care of development and new features. Thanks to: @IvanMMM @SergeyMihrjakov @dilame @sebyddd @hieven
 
 ----
@@ -238,7 +239,7 @@ storage.getAccountId()
 **Session class**
 
 You can create a new instance of Session by calling 
-`var session = new Session(device:Device, storage:CookieStorage)`
+`var session = new Client.Session(device:Device, storage:CookieStorage)`
 
 If you have valid cookies, you don't need to worry about anything else
 if you don't, you need to create a session with storage and device.
@@ -401,12 +402,12 @@ Another example would be upload:
 
 ```javascript
 // JPEG is the only supported format now, pull request for any other format welcomed!
-Upload.photo(session, './path/to/your/jpeg.jpg')
+Client.Upload.photo(session, './path/to/your/jpeg.jpg')
 	.then(function(upload) {
 		// upload instanceof Client.Upload
 		// nothing more than just keeping upload id
 		console.log(upload.params.uploadId);
-		return Media.configurePhoto(session, upload.params.uploadId, 'akward caption');
+		return Client.Media.configurePhoto(session, upload.params.uploadId, 'akward caption');
 	})
 	.then(function(medium) {
 		// we configure medium, it is now visible with caption
@@ -417,9 +418,9 @@ Upload.photo(session, './path/to/your/jpeg.jpg')
 Video upload:
 ```javascript
 // MP4 is the only supported format now, pull request for any other format welcomed!
-Upload.video(session, './path/to/your/video.mp4','./path/to/your/coverImg.jpg')
+Client.Upload.video(session, './path/to/your/video.mp4','./path/to/your/coverImg.jpg')
 	.then(function(upload) {
-		return Media.configureVideo(session, upload.uploadId, 'akward caption', upload.durationms);
+		return Client.Media.configureVideo(session, upload.uploadId, 'akward caption', upload.durationms);
 	})
 	.then(function(medium) {
 		// we configure medium, it is now visible with caption
