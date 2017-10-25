@@ -98,6 +98,28 @@ Challenge.resolve = function(checkpointError,defaultMethod,skipResetStep){
                 case 'verify_email':{
                     return new EmailVerificationChallenge(session, 'email', checkpointError, json);
                 }
+                case 'deleted_content_informational':{
+                    return return session.getAccountId()
+                    .then(function(accountId){
+                        return new Request(session)
+                            .setMethod('POST')
+                            .setUrl(that.apiUrl)
+                            .setHeaders({
+                                'User-Agent': iPhoneUserAgent
+                            })
+                            .generateUUID()
+                            .setData({
+                                '_csrftoken':session.CSRFToken,
+                                '_uid':accountId.toString()
+                            })
+                            .signPayload()
+                            .send({followRedirect: true,json:true})
+                            .then(function(json){
+                                if(json.status==='ok' && json.action==='close') throw new Exceptions.NoChallengeRequired;
+                                return that.resolve(checkpointError,defaultMethod,true)
+                            })
+                    })
+                }
                 default: return new NotImplementedChallenge(session, json.step_name, checkpointError, json);
             }
         })
