@@ -99,7 +99,7 @@ Challenge.resolve = function(checkpointError,defaultMethod,skipResetStep){
                     return new EmailVerificationChallenge(session, 'email', checkpointError, json);
                 }
                 case 'deleted_content_informational':{
-                    return return session.getAccountId()
+                    return session.getAccountId()
                     .then(function(accountId){
                         return new Request(session)
                             .setMethod('POST')
