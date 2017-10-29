@@ -23,7 +23,7 @@ CookieRedisStorage.prototype.destroy = function () {
     });
 };
 
-CookieRedisStorage.prototype.getAllCookies = function () {
+CookieStorage.prototype.getAllCookies = function () {
     return JSON.stringify(this.storage.idx)
 };
 
