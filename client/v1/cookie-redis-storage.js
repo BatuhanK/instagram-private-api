@@ -29,7 +29,7 @@ CookieStorage.prototype.getAllCookies = getAllCookies;
 RedisCookieStore.prototype.getAllCookies = getAllCookies;
 
 function getAllCookies(){
-    return JSON.stringify(this.storage.idx)
+    return "";
 }
 
 util.inherits(CookieRedisStorage, CookieStorage);
