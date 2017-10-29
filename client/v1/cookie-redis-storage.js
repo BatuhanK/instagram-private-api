@@ -23,9 +23,14 @@ CookieRedisStorage.prototype.destroy = function () {
     });
 };
 
-CookieStorage.prototype.getAllCookies = function () {
+CookieStorage.getAllCookies = getAllCookies;
+RedisCookieStore.getAllCookies = getAllCookies;
+CookieStorage.prototype.getAllCookies = getAllCookies;
+RedisCookieStore.prototype.getAllCookies = getAllCookies;
+
+function getAllCookies(){
     return JSON.stringify(this.storage.idx)
-};
+}
 
 util.inherits(CookieRedisStorage, CookieStorage);
 module.exports = CookieRedisStorage;
