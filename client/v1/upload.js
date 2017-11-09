@@ -88,8 +88,8 @@ Upload.video = function(session,videoBufferOrPath,photoStreamOrPath,isSidecar){
             } else {
                 fields['media_type'] = 2;
                 fields['upload_media_duration_ms'] = Math.floor(duration);
-                fields['upload_media_height'] = 720;
-                fields['upload_media_width'] = 720;
+                //fields['upload_media_height'] = 720;
+                //fields['upload_media_width'] = 720;
             }
             return request
             .setMethod('POST')
