@@ -116,7 +116,7 @@ Upload.video = function(session,videoBufferOrPath,photoStreamOrPath,options){
                     range:'bytes '+chunkLength+'-'+(buffer.length-1)+'/'+buffer.length
                 });
                 return Promise.mapSeries(chunks,function(chunk,i){
-                        return _sendChunkedRequest(session,uploadData.params.uploadUrl,uploadData.params.uploadJob,sessionId,chunk.data,chunk.range,isSidecar)
+                        return _sendChunkedRequest(session,uploadData.params.uploadUrl,uploadData.params.uploadJob,sessionId,chunk.data,chunk.range,options.isSidecar)
                     })
                     .then(function(results){
                         var videoUploadResult = results[results.length-1];
@@ -127,7 +127,7 @@ Upload.video = function(session,videoBufferOrPath,photoStreamOrPath,options){
                         }
                     })
                     .then(function(uploadData){
-                        return Upload.photo(session,photoStreamOrPath,uploadData.uploadId,"cover_photo_", isSidecar)
+                        return Upload.photo(session,photoStreamOrPath,uploadData.uploadId,"cover_photo_", options.isSidecar)
                             .then(function(){
                                 return uploadData;
                             })
