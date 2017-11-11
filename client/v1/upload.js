@@ -84,14 +84,11 @@ Upload.video = function(session,videoBufferOrPath,photoStreamOrPath,options){
             var fields = {
                 upload_id: predictedUploadId
             };
-            if(options.isSidecar) {
-                fields['is_sidecar'] = 1;
-            } else {
-                fields['media_type'] = 2;
-                fields['upload_media_duration_ms'] = Math.floor(duration);
-                fields['upload_media_height'] = options.height || 720;
-                fields['upload_media_width'] = options.width || 720;
-            }
+            if(options.isSidecar) fields['is_sidecar'] = 1;
+            fields['media_type'] = 2;
+            fields['upload_media_duration_ms'] = Math.floor(duration);
+            fields['upload_media_height'] = options.height || 720;
+            fields['upload_media_width'] = options.width || 720;
             return request
             .setMethod('POST')
             .setBodyType('form')
