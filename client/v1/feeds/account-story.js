@@ -1,6 +1,7 @@
 var _ = require('lodash');
 var Request = require('../request');
 var Media = require('../media');
+var Helpers = require('../../../helpers');
 
 function AccountStory(session, accountId) {
     this.session = session;
