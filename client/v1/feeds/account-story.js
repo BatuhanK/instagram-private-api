@@ -13,7 +13,8 @@ AccountStory.prototype.get = function () {
         .setMethod('GET')
         .setResource('storyFeed', {
             id: that.accountId,
-            maxId: that.cursor
+            maxId: that.cursor,
+            rankToken: Helpers.generateUUID()
         })
         .send()
         .then(function(data) {
