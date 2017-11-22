@@ -92,7 +92,7 @@ Relationship.create = function (session, accountId) {
         .setMethod('POST')
         .setResource('follow', {id: accountId})
         .generateUUID()
-        .setData({user_id: accountId})
+        .setData({user_id: accountId,radio_type:'wifi-none'})
         .signPayload()
         .send()
         .then(function(data) {
