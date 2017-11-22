@@ -30,6 +30,7 @@ const ROUTES = {
     friendshipPending: 'friendships/pending/',
     friendshipPendingApprove: 'friendships/approve/<%= id %>/',
     userInfo: 'users/<%= id %>/info/',
+    usernameInfo: 'users/<%= name %>/usernameinfo/',
     userFeed: 'feed/user/<%= id %>/?<%= maxId ? ("max_id=" + maxId + "&") : "" %>rank_token=<%= rankToken %>',
     storyFeed: 'feed/user/<%= id %>/story/?<%= maxId ? ("max_id=" + maxId + "&") : "" %>rank_token=<%= rankToken %>',
     timelineFeed: 'feed/timeline/?<%= maxId ? ("max_id=" + maxId + "&") : "" %>rank_token=<%= rankToken %>&ranked_content=true',
