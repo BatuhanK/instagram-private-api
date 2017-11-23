@@ -3,6 +3,7 @@ var util = require('util');
 var FeedBase = require('./feed-base');
 
 function UserNewsFeed(session, limit) {
+    this.session = session;
     this.timeout = 10 * 60 * 1000; // 10 minutes
     this.limit = limit;
     FeedBase.apply(this, arguments);
