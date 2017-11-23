@@ -7,7 +7,6 @@ const ROUTES = {
     expose: 'qe/expose/',
     login: 'accounts/login/',
     logout: 'accounts/logout/',
-    news:'news/?<%= maxId ? ("max_id=" + maxId + "&") : "" %>rank_token=<%= rankToken %>',
     setAccountPrivate: 'accounts/set_private/',
     setAccountPublic: 'accounts/set_public/',
     editAccount: 'accounts/edit_profile/',
@@ -41,6 +40,7 @@ const ROUTES = {
     followingFeed: 'friendships/<%= id %>/following/?<%= maxId ? ("max_id=" + maxId + "&") : "" %>rank_token=<%= rankToken %>',
     followersFeed: 'friendships/<%= id %>/followers/<%= maxId ? ("?max_id=" + maxId) : "" %>',
     savedFeed: 'feed/saved/<%= maxId ? ("?max_id=" + maxId) : "" %>',
+    newsFeed:'news/?<%= maxId ? ("max_id=" + maxId + "&") : "" %>rank_token=<%= rankToken %>',
 
     topSearch: 'fbsearch/topsearch/?rank_token=<%= rankToken %>&query=<%= encodeURIComponent(query) %>&context=blended&timezone_offset=10800',
     accountsSearch: 'users/search/?is_typehead=true&q=<%= encodeURIComponent(query) %>&rank_token=<%= rankToken %>',
