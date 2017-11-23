@@ -2,8 +2,7 @@ var _ = require('lodash');
 var util = require('util');
 var FeedBase = require('./feed-base');
 
-function UserNewsFeed(session, accountId, limit) {
-    this.accountId = accountId;
+function UserNewsFeed(session, limit) {
     this.timeout = 10 * 60 * 1000; // 10 minutes
     this.limit = limit;
     FeedBase.apply(this, arguments);
@@ -23,7 +22,6 @@ UserNewsFeed.prototype.get = function () {
             return new Request(that.session)
                 .setMethod('GET')
                 .setResource('news', {
-                    id: that.accountId,
                     maxId: that.getCursor(),
                     rankToken: rankToken
                 })
