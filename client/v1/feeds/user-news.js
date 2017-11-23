@@ -3,7 +3,6 @@ var util = require('util');
 var FeedBase = require('./feed-base');
 
 function NewsFeed(session, limit) {
-    console.log(`Session: ${!!session}`);
     this.limit = parseInt(limit) || null;
     FeedBase.apply(this, arguments);
 }
@@ -15,7 +14,6 @@ var Helpers = require('../../../helpers');
 
 
 NewsFeed.prototype.get = function () {
-    console.log(this);
     var that = this;
     return this.session.getAccountId()
         .then(function(id) {
