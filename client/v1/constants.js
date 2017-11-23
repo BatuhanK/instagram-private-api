@@ -7,6 +7,7 @@ const ROUTES = {
     expose: 'qe/expose/',
     login: 'accounts/login/',
     logout: 'accounts/logout/',
+    news:'news/?<%= maxId ? ("max_id=" + maxId + "&") : "" %>rank_token=<%= rankToken %>',
     setAccountPrivate: 'accounts/set_private/',
     setAccountPublic: 'accounts/set_public/',
     editAccount: 'accounts/edit_profile/',
