@@ -9,6 +9,7 @@ InstagramV1.CookieStorage = require('./v1/cookie-storage');
 InstagramV1.CookieFileStorage = require('./v1/cookie-file-storage');
 InstagramV1.CookieMemoryStorage = require('./v1/cookie-memory-storage');
 InstagramV1.CookieRedisStorage = require('./v1/cookie-redis-storage');
+InstagramV1.CookieMongoStorage = require('./v1/cookie-mongo-storage');
 InstagramV1.Exceptions = require("./v1/exceptions");
 InstagramV1.prunedJson = require('./v1/json-pruned');
 InstagramV1.Resource = require('./v1/resource');
